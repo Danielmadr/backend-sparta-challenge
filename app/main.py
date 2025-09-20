@@ -19,7 +19,7 @@ class InvestmentData(BaseModel):
 app = FastAPI()
 
 @app.get("/")
-def read_root():
+def root():
     return {"System": "Backend Sparta Challenge", "Version": "1.0.0"}
 
 
