@@ -2,7 +2,9 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
 
-from services.calculator_brute_force import calculate_management_fee_per_shareholder  as calculate_management_fee_per_shareholder_brute_force
+from services.calculator_brute_force import (
+    calculate_management_fee_per_shareholder as calculate_management_fee_per_shareholder_brute_force,
+)
 from services.calculator_numpy import calculate_management_fee_per_shareholder
 
 
@@ -18,26 +20,34 @@ class InvestmentData(BaseModel):
 
 app = FastAPI()
 
+
 @app.get("/")
 def root():
+    """Retorna informações básicas sobre o sistema."""
     return {"System": "Backend Sparta Challenge", "Version": "1.0.0"}
 
 
 @app.post("/calcular-taxa-administrativa-por-cotista", response_model=List[float])
 def evaluate_fee_per_investor(data: InvestmentData):
+    """
+    Calcula a taxa administrativa por cotista utilizando a implementação otimizada com NumPy.
+    """
 
     input_dict = data.model_dump()
-
     management_fee_result = calculate_management_fee_per_shareholder(input_dict)
-
     return management_fee_result
 
-@app.post("/calcular-taxa-administrativa-por-cotista-brute-force", response_model=List[float])
+
+@app.post(
+    "/calcular-taxa-administrativa-por-cotista-brute-force", response_model=List[float]
+)
 def evaluate_fee_per_investor_brute_force(data: InvestmentData):
+    """
+    Calcula a taxa administrativa por cotista utilizando a implementação de força bruta.
+    """
 
     input_dict = data.model_dump()
-
-    management_fee_result = calculate_management_fee_per_shareholder_brute_force(input_dict)
-
-
+    management_fee_result = calculate_management_fee_per_shareholder_brute_force(
+        input_dict
+    )
     return management_fee_result
