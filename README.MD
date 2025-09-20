@@ -6,7 +6,7 @@ Esta é uma implementação da API REST para o cálculo de taxas de administraç
 
 1.  **Clone o repositório:**
     ```bash
-    git clone 
+    git clone https://github.com/Danielmadr/backend-sparta-challenge
     cd sparta-challenge
     ```
 
