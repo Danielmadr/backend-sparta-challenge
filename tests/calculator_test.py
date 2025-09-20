@@ -1,7 +1,10 @@
-import pytest as pt
+import sys
+from pathlib import Path
 
-from calculator_numpy import calculate_management_fee_per_shareholder
-from calculator_brute_force import (
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
+from app.calculator_numpy import calculate_management_fee_per_shareholder
+from app.calculator_brute_force import (
     calculate_management_fee_per_shareholder as calculate_management_fee_per_shareholder_brute_force,
 )
 
