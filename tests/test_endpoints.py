@@ -9,6 +9,13 @@ def test_get_endpoint():
     assert response.status_code == 200
     assert response.json() == {"System": "Backend Sparta Challenge", "Version": "1.0.0"}
 
+def test_post_endpoint_small_data():
+    with open('data/small_test_data.json', 'r') as f:
+        small_payload = f.read()
+    response = requests.post(f"{ENDPOINT}/calcular-taxa-administrativa-por-cotista", data=small_payload, headers={"Content-Type": "application/json"})
+    assert response.status_code == 200
+    assert len(response.json()) == 40  # should return exactly 40 values, one for each shareholder
+
 def test_post_endpoint_large_data():
     with open('data/large_test_data.json', 'r') as f:
         large_payload = f.read()
