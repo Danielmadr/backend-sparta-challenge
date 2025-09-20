@@ -27,8 +27,28 @@ Esta é uma implementação da API REST para o cálculo de taxas de administraç
     ```
     A API estará disponível em `http://127.0.0.1:8000`.
 
-5.  **Documentação e testes**
-    Documentação interativa da API em `http://127.0.0.1:8000/docs` para testar o endpoint.
+## Como Rodar Localmente (com Docker)
+
+Este projeto está containerizado com Docker, garantindo um ambiente de execução consistente e isolado.
+
+**Pré-requisitos:**
+*   [Docker](https://www.docker.com/get-started)
+*   [Docker Compose](https://docs.docker.com/compose/install/) (geralmente já vem com o Docker Desktop)
+
+### 1. Suba o container
+Na raiz do projeto, execute o seguinte comando:
+```bash
+docker-compose up --build
+```
+*   O `--build` é necessário na primeira vez para construir a imagem. Nas próximas, você pode usar apenas `docker-compose up`.
+*   A API estará disponível em `http://127.0.0.1:8000`.
+*   Graças ao `volume` e ao `--reload`, você pode editar o código Python e as mudanças serão aplicadas automaticamente sem precisar reiniciar o container.
+
+Para parar o container, pressione `Ctrl+C` no terminal e depois execute `docker-compose down`.
+
+## Documentação e testes
+
+Documentação interativa da API em `http://127.0.0.1:8000/docs` para testar o endpoint.
 
 ## Decisões Técnicas
 
