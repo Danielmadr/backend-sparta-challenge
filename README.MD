@@ -138,6 +138,13 @@ Para rodar os testes, utilize `pytest`:
 ```bash
 pytest -v
 ```
+
+## Próximos Passos e Melhorias
+
+- Adicionar tratamento de exceções nos endpoints
+- Implementar testes para entradas inválidas e erros
+- Refatorar testes para usar FastAPI TestClient
+
 ---
 
 *Este projeto foi desenvolvido como parte do processo seletivo da Sparta.*
