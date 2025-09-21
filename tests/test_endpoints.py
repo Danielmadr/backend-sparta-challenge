@@ -5,14 +5,14 @@ from app.main import app
 client = TestClient(app)
 
 def test_get_endpoint():
-    response = client.get(ENDPOINT)
+    response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"System": "Backend Sparta Challenge", "Version": "1.0.0"}
 
 def test_post_endpoint_small_data():
     with open('data/test_data_stakeholders_40_days_30.json', 'r') as f:
         small_payload = f.read()
-    response = client.post(f"{ENDPOINT}/calcular-taxa-administrativa-por-cotista", data=small_payload, headers={"Content-Type": "application/json"})
+    response = client.post(f"/calcular-taxa-administrativa-por-cotista", content=small_payload, headers={"Content-Type": "application/json"})
     assert response.status_code == 200
     assert len(response.json()) == 40  # should return exactly 40 values, one for each shareholder
 
@@ -21,7 +21,7 @@ def test_post_endpoint_large_data():
         large_payload = f.read()
 
     inicio = time.time()
-    response = client.post(f"{ENDPOINT}/calcular-taxa-administrativa-por-cotista", data=large_payload, headers={"Content-Type": "application/json"})
+    response = client.post(f"/calcular-taxa-administrativa-por-cotista", content=large_payload, headers={"Content-Type": "application/json"})
     fim = time.time()
     print(f"Tempo de resposta: {fim - inicio} segundos")
 
@@ -33,7 +33,7 @@ def test_post_endpoint_large_data_brute_force():
         large_payload = f.read()
 
     inicio = time.time()
-    response = client.post(f"{ENDPOINT}/calcular-taxa-administrativa-por-cotista-brute-force", data=large_payload, headers={"Content-Type": "application/json"})
+    response = client.post(f"/calcular-taxa-administrativa-por-cotista-brute-force", content=large_payload, headers={"Content-Type": "application/json"})
     fim = time.time()
     print(f"Tempo de resposta força bruta: {fim - inicio} segundos")
 
