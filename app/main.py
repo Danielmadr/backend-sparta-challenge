@@ -2,10 +2,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
 
-from services.calculator_brute_force import (
+from .services.calculator_brute_force import (
     calculate_management_fee_per_shareholder as calculate_management_fee_per_shareholder_brute_force,
 )
-from services.calculator_numpy import calculate_management_fee_per_shareholder
+from .services.calculator_numpy import calculate_management_fee_per_shareholder
 
 
 class DailyData(BaseModel):
