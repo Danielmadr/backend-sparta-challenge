@@ -27,8 +27,8 @@ def root():
     return {
         "System": "Backend Sparta Challenge",
         "Version": "1.0.0",
-        "message": "API is running, access /docs for more information",
-        "link": "http://localhost:8000/docs",
+        "Message": "API is running, access /docs for more information",
+        "Link": "http://localhost:8000/docs",
     }
 
 
