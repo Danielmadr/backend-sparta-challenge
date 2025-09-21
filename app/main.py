@@ -24,7 +24,12 @@ app = FastAPI()
 @app.get("/")
 def root():
     """Retorna informações básicas sobre o sistema."""
-    return {"System": "Backend Sparta Challenge", "Version": "1.0.0"}
+    return {
+        "System": "Backend Sparta Challenge",
+        "Version": "1.0.0",
+        "message": "API is running, access /docs for more information",
+        "link": "http://localhost:8000/docs",
+    }
 
 
 @app.post("/calcular-taxa-administrativa-por-cotista", response_model=List[float])
