@@ -143,7 +143,6 @@ pytest -v
 
 - Adicionar tratamento de exceções nos endpoints
 - Implementar testes para entradas inválidas e erros
-- Refatorar testes para usar FastAPI TestClient
 
 ---
 
