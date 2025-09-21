@@ -89,7 +89,9 @@ Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
     ```json
     {
         "System": "Backend Sparta Challenge",
-        "Version": "1.0.0"
+        "Version": "1.0.0",
+        "Message": "API is running, access /docs for more information",
+        "Link": "http://localhost:8000/docs"
     }
     ```
 
@@ -134,7 +136,7 @@ Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
     
 ## Testes
 
-Para rodar os testes, utilize `pytest`:
+Para rodar os testes, utilize `pytest` na raiz do projeto:
 
 ```bash
 pytest -v
