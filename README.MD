@@ -73,7 +73,8 @@ Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
     ```
 4.  Execute a aplicação com Uvicorn:
     ```bash
-    uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    cd app
+    uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     ```
     A aplicação estará disponível em `http://localhost:8000`.
 
